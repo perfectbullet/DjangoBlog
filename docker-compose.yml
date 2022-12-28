@@ -16,8 +16,9 @@ services:
     environment:
       - MYSQL_DATABASE=djangoblog
       - MYSQL_ROOT_PASSWORD=DjAnGoBlOg!2!Q@W#E
-    ports:
-      - 3307:3306
+    expose:
+      - 3306
+      - 33060
     networks:
       - backnet
     volumes:
@@ -29,7 +30,7 @@ services:
   djangoblog:
     build: .
     restart: always
-    command: bash -c 'sh /code/DjangoBlog/bin/docker_start.sh'
+#    command: bash -c 'sh /code/DjangoBlog/bin/docker_start.sh'
     ports:
       - "8000:8000"
     volumes:
