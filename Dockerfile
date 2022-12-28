@@ -4,10 +4,10 @@ WORKDIR /code/DjangoBlog/
 RUN  apt-get install  default-libmysqlclient-dev -y && \
     ln -sf /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime
 ADD requirements.txt requirements.txt
-RUN pip install --upgrade pip  && \
-        pip install -Ur requirements.txt  && \
-        pip install gunicorn[gevent] && \
-        pip cache purge
-        
+RUN pip install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple &&  \
+    pip install -Ur requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple &&  \
+    pip install gunicorn -i https://pypi.tuna.tsinghua.edu.cn/simple &&  \
+    pip cache purge
+
 ADD . .
 ENTRYPOINT ["/code/DjangoBlog/bin/docker_start.sh"]
