@@ -30,7 +30,7 @@ services:
   djangoblog:
     build: .
     restart: always
-#    command: bash -c 'sh /code/DjangoBlog/bin/docker_start.sh'
+    command: /code/DjangoBlog/bin/docker_start.sh
     ports:
       - "8000:8000"
     volumes:

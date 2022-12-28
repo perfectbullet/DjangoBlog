@@ -7,7 +7,8 @@ ADD requirements.txt requirements.txt
 RUN pip install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple &&  \
     pip install -Ur requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple &&  \
     pip install gunicorn -i https://pypi.tuna.tsinghua.edu.cn/simple &&  \
-    pip cache purge
+    pip cache purge && chmod -R 755 /code/DjangoBlog/bin
 
 ADD . .
-ENTRYPOINT ["/code/DjangoBlog/bin/docker_start.sh"]
+#ENTRYPOINT ["/code/DjangoBlog/bin/docker_start.sh"]
+CMD [ "sh", "/code/DjangoBlog/bin/docker_start.sh"]
