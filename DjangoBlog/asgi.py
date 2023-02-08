@@ -1,5 +1,5 @@
 """
-ASGI config for TestVideos project.
+ASGI config for main_project project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,14 +11,14 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'DjangoBlog.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'BoatControlProject.settings')
 
 # application = get_asgi_application()  #原本内容
 
 
 from channels.routing import ProtocolTypeRouter, URLRouter  #channels
 from channels.auth import AuthMiddlewareStack
-from chat import urls  #我们创建的app
+import chat.urls    #我们创建的app
 
 
 application = ProtocolTypeRouter({
@@ -26,7 +26,7 @@ application = ProtocolTypeRouter({
 
     "websocket": AuthMiddlewareStack(
         URLRouter(
-            urls.urlpatterns
+            chat.urls.websocket_urlpatterns
         )
     ),
 })

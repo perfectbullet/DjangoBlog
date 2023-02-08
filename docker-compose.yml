@@ -36,6 +36,7 @@ services:
     expose:
       - 8000
     volumes:
+      - /root/DjangoBlog/:/code/DjangoBlog/
       - ./collectedstatic:/code/DjangoBlog/collectedstatic
     environment:
       - DJANGO_MYSQL_DATABASE=djangoblog
