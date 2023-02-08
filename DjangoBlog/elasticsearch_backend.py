@@ -11,18 +11,14 @@
 @time: 2019-04-13 11:46
 """
 
-import logging
-import re
 from django.utils.encoding import force_text
-
 from elasticsearch_dsl import Q
-
-from haystack.backends import BaseEngine, BaseSearchBackend, BaseSearchQuery, EmptyResults, log_query
+from haystack.backends import BaseEngine, BaseSearchBackend, BaseSearchQuery, log_query
 from haystack.models import SearchResult
 from haystack.utils import log as logging
 
-from blog.models import Article
 from blog.documents import ArticleDocument, ArticleDocumentManager
+from blog.models import Article
 
 logger = logging.getLogger(__name__)
 

@@ -71,7 +71,11 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.http.ConditionalGetMiddleware',
-    'blog.middleware.OnlineMiddleware'
+    'blog.middleware.OnlineMiddleware',
+
+
+    'channels', # channels应用
+    'chat',
 ]
 
 ROOT_URLCONF = 'DjangoBlog.urls'
@@ -94,20 +98,26 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'DjangoBlog.wsgi.application'
+# 设置ASGI应用
+ASGI_APPLICATION = 'DjangoBlog.asgi.application'
+
+# 设置通道层的通信后台 - 本地测试用
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
+}
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
-
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('DJANGO_MYSQL_DATABASE') or 'djangoblog',
-        'USER': os.environ.get('DJANGO_MYSQL_USER') or 'root',
-        'PASSWORD': os.environ.get('DJANGO_MYSQL_PASSWORD') or 'djangoblog_123',
-        'HOST': os.environ.get('DJANGO_MYSQL_HOST') or '127.0.0.1',
-        'PORT': int(
-            os.environ.get('DJANGO_MYSQL_PORT') or 3306),
+        'NAME': 'djangoblog',
+        'USER': 'root',
+        'PASSWORD': 'DjAnGoBlOg!2!Q@W#E',
+        'HOST': '49.232.208.236',
+        'PORT': 33060,
         'OPTIONS': {
             'charset': 'utf8mb4'},
     }}
