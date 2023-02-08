@@ -1,6 +1,8 @@
 #等同于django的views.py
 #对于channels叫consumers.py
 #下面的内容作用：将新的ws客户端加入到一个频道，将其发送到ws服务端的内容广播至频道所有人
+import json
+
 from channels.generic.websocket import AsyncWebsocketConsumer
 
 
