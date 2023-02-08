@@ -1,4 +1,4 @@
-FROM python:3.8.2-alpine
+FROM python:3.8.2
 
 # 对于3.7以上版本: 标准输出stdout和标准错误stderr全部采用unbuffered 不用配置 PYTHONUNBUFFERED 1
 #ENV PYTHONUNBUFFERED 1
