@@ -97,7 +97,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'DjangoBlog.wsgi.application'
+# WSGI_APPLICATION = 'DjangoBlog.wsgi.application'
 # 设置ASGI应用
 ASGI_APPLICATION = 'DjangoBlog.asgi.application'
 
