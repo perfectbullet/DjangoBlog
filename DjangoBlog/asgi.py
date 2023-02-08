@@ -13,7 +13,7 @@ from django.core.asgi import get_asgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'BoatControlProject.settings')
 
-# application = get_asgi_application()  #原本内容
+django_asgi_app = get_asgi_application()  #原本内容
 
 
 from channels.routing import ProtocolTypeRouter, URLRouter  #channels
@@ -22,8 +22,8 @@ import chat.urls    #我们创建的app
 
 
 application = ProtocolTypeRouter({
-    # "http": get_asgi_application(), #此处会影响http请求。此处大概时异步接管HTTP的意思
-
+    #"http": get_asgi_application(), #此处会影响http请求。此处大概时异步接管HTTP的意思
+    "http": django_asgi_app,
     "websocket": AuthMiddlewareStack(
         URLRouter(
             chat.urls.websocket_urlpatterns
