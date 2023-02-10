@@ -11,7 +11,7 @@ DJANGO_WSGI_MODULE=DjangoBlog.asgi # WSGI module name
 echo "Starting $NAME as `whoami`"
 
 # Activate the virtual environment
-cd $DJANGODIR
+cd "$DJANGODIR"
 
 export PYTHONPATH=$DJANGODIR:$PYTHONPATH
 #pip install -Ur requirements.txt -i http://pypi.douban.com/simple/  --trusted-host pypi.douban.com && \

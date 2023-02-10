@@ -13,8 +13,8 @@ RUN pip install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple &&  \
     pip install gunicorn -i https://pypi.tuna.tsinghua.edu.cn/simple &&  \
     pip cache purge
 
-ENTRYPOINT ["python3"]
-CMD ["manage.py", "runserver", "0.0.0.0:8000"]
+
+CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
 
 #ENTRYPOINT ["/code/DjangoBlog/bin/docker_start.sh"]
 #CMD [ "sh", "/code/DjangoBlog/bin/docker_start.sh"]
