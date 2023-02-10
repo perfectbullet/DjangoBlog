@@ -39,6 +39,8 @@ ALLOWED_HOSTS = ['*', '127.0.0.1', 'example.com']
 
 
 INSTALLED_APPS = [
+    'channels',  # channels应用
+    'chat',
     "daphne",
     # 'django.contrib.admin',
     'django.contrib.admin.apps.SimpleAdminConfig',
@@ -74,8 +76,7 @@ MIDDLEWARE = [
     'django.middleware.http.ConditionalGetMiddleware',
     'blog.middleware.OnlineMiddleware',
 
-    'channels',  # channels应用
-    'chat',
+
 ]
 
 ROOT_URLCONF = 'DjangoBlog.urls'
