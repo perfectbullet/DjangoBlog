@@ -11,9 +11,7 @@ RUN pip install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple &&  \
     pip install -Ur requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple &&  \
     pip install channels["daphne"] -i https://pypi.tuna.tsinghua.edu.cn/simple &&  \
     pip install gunicorn -i https://pypi.tuna.tsinghua.edu.cn/simple &&  \
-    pip cache purge && chmod -R 755 /code/DjangoBlog/bin/
-
-COPY . /code/DjangoBlog/
+    pip cache purge
 
 ENTRYPOINT ["python3"]
 CMD ["manage.py", "runserver", "0.0.0.0:8000"]
