@@ -39,6 +39,7 @@ ALLOWED_HOSTS = ['*', '127.0.0.1', 'example.com']
 
 
 INSTALLED_APPS = [
+    "daphne",
     # 'django.contrib.admin',
     'django.contrib.admin.apps.SimpleAdminConfig',
     'django.contrib.auth',
@@ -73,8 +74,7 @@ MIDDLEWARE = [
     'django.middleware.http.ConditionalGetMiddleware',
     'blog.middleware.OnlineMiddleware',
 
-
-    'channels', # channels应用
+    'channels',  # channels应用
     'chat',
 ]
 
