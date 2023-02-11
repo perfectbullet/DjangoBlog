@@ -34,9 +34,11 @@ services:
     #command: /code/DjangoBlog/bin/docker_start.sh
     command: python manage.py runserver 0.0.0.0:8000
     ports:
-      - "8003:8000"
+      - "8003:8003"
+      - "8000:8000"
     expose:
       - "8000"
+      - "8003"
     volumes:
       - /root/DjangoBlog/:/code/DjangoBlog/
       - ./collectedstatic:/code/DjangoBlog/collectedstatic
