@@ -19,7 +19,7 @@ services:
     ports:
       - "33060:3306"
     expose:
-      - 3306
+      - "3306"
     networks:
       - backnet
     volumes:
@@ -31,10 +31,12 @@ services:
   djangoblog:
     build: .
     restart: always
-    command: /code/DjangoBlog/bin/docker_start.sh
-#    command: python manage.py runserver 0.0.0.0:8000
+    #command: /code/DjangoBlog/bin/docker_start.sh
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8003:8000"
     expose:
-      - 8000
+      - "8000"
     volumes:
       - /root/DjangoBlog/:/code/DjangoBlog/
       - ./collectedstatic:/code/DjangoBlog/collectedstatic
