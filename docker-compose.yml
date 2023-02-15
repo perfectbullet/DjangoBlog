@@ -57,7 +57,7 @@ services:
     container_name: djangoblog
   nginx:
     restart: always
-    image: nginx:latest
+    image: nginx:1.22.0
     ports:
       - "8001:80"
       - "443:443"
