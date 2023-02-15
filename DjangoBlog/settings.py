@@ -40,7 +40,6 @@ ALLOWED_HOSTS = ['*', '127.0.0.1', 'example.com']
 
 INSTALLED_APPS = [
     'channels',  # channels应用
-    'chat',
     "daphne",
     # 'django.contrib.admin',
     'django.contrib.admin.apps.SimpleAdminConfig',
@@ -59,7 +58,8 @@ INSTALLED_APPS = [
     'oauth',
     'servermanager',
     'owntracks',
-    'compressor'
+    'compressor',
+    'chat'
 ]
 
 MIDDLEWARE = [
@@ -98,7 +98,7 @@ TEMPLATES = [
     },
 ]
 
-# WSGI_APPLICATION = 'DjangoBlog.wsgi.application'
+WSGI_APPLICATION = 'DjangoBlog.wsgi.application'
 # 设置ASGI应用
 ASGI_APPLICATION = 'DjangoBlog.asgi.application'
 
@@ -112,15 +112,26 @@ CHANNEL_LAYERS = {
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': os.environ.get('DJANGO_MYSQL_DATABASE') or 'djangoblog',
+    #     'USER': os.environ.get('DJANGO_MYSQL_USER') or 'root',
+    #     'PASSWORD': os.environ.get('DJANGO_MYSQL_PASSWORD') or 'DjAnGoBlOg!2!Q@W#E',
+    #     'HOST': os.environ.get('DJANGO_MYSQL_HOST') or '49.232.208.236',
+    #     'PORT': int(os.environ.get('DJANGO_MYSQL_PORT') or 33060),
+    #     'OPTIONS': {'charset': 'utf8mb4'},
+    # }
+
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('DJANGO_MYSQL_DATABASE') or 'djangoblog',
-        'USER': os.environ.get('DJANGO_MYSQL_USER') or 'root',
-        'PASSWORD': os.environ.get('DJANGO_MYSQL_PASSWORD') or 'DjAnGoBlOg!2!Q@W#E',
-        'HOST': os.environ.get('DJANGO_MYSQL_HOST') or '49.232.208.236',
-        'PORT': int(os.environ.get('DJANGO_MYSQL_PORT') or 33060),
+        'NAME': 'djangoblog',
+        'USER': 'root',
+        'PASSWORD': '123456',
+        'HOST': 'localhost',
+        'PORT': 3306,
         'OPTIONS': {'charset': 'utf8mb4'},
-    }}
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators

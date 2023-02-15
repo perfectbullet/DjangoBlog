@@ -1,7 +1,9 @@
-from django.urls import re_path
+from django.urls import path
 
-from chat import views  #等同于views.py 稍后创建
+from chat import views
+
 
 urlpatterns = [
-    re_path(r'ws/chat/(?P<room_name>\w+)/$', views.ChatConsumer.as_asgi()),
+    path("", views.index, name="index"),
+    path("<str:room_name>/", views.room, name="room"),
 ]
