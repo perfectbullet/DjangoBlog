@@ -1,0 +1,31 @@
+<html>
+<head>
+    <script type="text/javascript">
+        function startTime() {
+            var today = new Date()
+
+            var year = today.getFullYear()
+            var month = today.getMonth() + 1
+            var date = today.getDate()
+            var h = today.getHours()
+            var m = today.getMinutes()
+            var s = today.getSeconds()
+            // 当数字是小于10的就要在前面加0.看起来规范
+            m = checkTime(m)
+            s = checkTime(s)
+            document.getElementById('txt').innerHTML = year + "-" + month + "-" + date + " " + h + ":" + m + ":" + s
+            t = setTimeout('startTime()', 10)
+        }
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i
+            }
+            return i
+        }
+    </script>
+</head>
+<body onload="startTime()">
+<div id="txt"></div>
+</body>
+</html>
