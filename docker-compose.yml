@@ -17,7 +17,7 @@ services:
       - MYSQL_DATABASE=djangoblog
       - MYSQL_ROOT_PASSWORD=DjAnGoBlOg!2!Q@W#E
     ports:
-      - "33060:3306"
+      - "33062:3306"
     expose:
       - "3306"
     networks:
