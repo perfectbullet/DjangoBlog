@@ -5,8 +5,8 @@
 3.看变量的特点
 """
 
-my_name='TOM'
+my_name = 'TOM'
 print(my_name)
 
-schoolName='我是黑马程序员,我爱Python'
+schoolName = '我是黑马程序员,我爱Python'
 print(schoolName)
