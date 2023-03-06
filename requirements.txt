@@ -7,7 +7,7 @@ django-mdeditor==0.1.18
 django-uuslug==1.2.0
 elasticsearch==7.13.3
 elasticsearch-dsl==7.4.0
-gevent
+gevent==22.10.2
 jieba==0.42.1
 jsonpickle==2.0.0
 mistune==0.8.4
@@ -29,4 +29,4 @@ user-agents==2.2.0
 
 channels==4.0.0
 daphne==4.0.0
-channels_redis
+channels-redis==4.0.0
