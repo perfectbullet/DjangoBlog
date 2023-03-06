@@ -77,6 +77,15 @@ services:
     ports:
       - "11211:11211"
 
+  blog_redis_service:
+    restart: always
+    image: redis:6
+    networks:
+      - backnet
+    container_name: blog_redis
+    expose:
+      - "6379"
+
 networks:
   backnet:
   frontnet:
