@@ -16,7 +16,7 @@ from django.core.cache import cache
 from django.contrib.sites.models import Site
 from hashlib import sha256
 import mistune
-from mistune import escape, escape_link
+from mistune import escape
 from pygments import highlight
 from pygments.lexers import get_lexer_by_name
 from pygments.formatters import html
