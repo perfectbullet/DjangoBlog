@@ -35,5 +35,4 @@ if __name__ == '__main__':
     # size = get_dir_size(r'C:\Users\Administrator\AppData\Local')
     # print('Total size is: %.3f Mb' % (size / 1024 / 1024))
 
-    size = get_size(r'C:\Users\Administrator\AppData\Local')
-
+    size = get_size(r'D:\\python_workspace')
