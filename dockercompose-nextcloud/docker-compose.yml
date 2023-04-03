@@ -6,13 +6,13 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/root/nextcloud-data'
+      device: '/root/dockercompose-nextcloud-data'
   db:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/root/nextcloud-db-data'
+      device: '/root/dockercompose-nextcloud-db-data'
 
 services:
   db:
@@ -35,7 +35,7 @@ services:
     links:
       - db
     volumes:
-      - nextcloud:/var/www/html
+      - dockercompose-nextcloud:/var/www/html
     environment:
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
       - MYSQL_DATABASE=${MYSQL_DATABASE}

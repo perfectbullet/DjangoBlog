@@ -2,6 +2,9 @@ import time
 
 from jqdatasdk import *
 
+pd.set_option('display.max_rows', 100000)
+pd.set_option('display.max_columns', 100)
+
 auth('13551167709', '1355Jing.@')
 
 

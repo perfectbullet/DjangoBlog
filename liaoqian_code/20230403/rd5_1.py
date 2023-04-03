@@ -1,0 +1,25 @@
+import redis
+
+if __name__ == '__main__':
+    r = redis.Redis(host='49.232.208.236', port=6378, db=0)
+    r.flushall()
+    r.zadd('keyword', {'鹿晗': 0, '马云': 0, '张朝阳': 0})
+    print(r.zincrby('keyword', 1, '鹿晗'))
+    print(r.zincrby('keyword', 5, '马云'))
+    print(r.zincrby('keyword', 2, '张朝阳'))
+    print(r.zrevrange('keyword', 0, -1))
+    r.delete('keyword')
+    r.zadd('keyword', {'鹿晗': 3600, '马云': 5000, '张朝阳': 2000})
+    print(r.zrange('keyword', 0, -1))
+    print(r.zcard('keyword'))
+    print(r.zcount('keyword', 3000, 5000))
+    print(r.zscore('keyword', '马云'))
+    print(r.zrevrange('keyword', 0, 0))
+    print(r.zrange('keyword', 0, 0))
+    print(r.zrangebyscore('keyword', 3000, 5000))
+    print(r.zrangebyscore('keyword', 3000, '(5000'))
+    print(r.zrangebyscore('keyword', 3000, '+inf'))
+    print(r.zrevrangebyscore('keyword', 5000, 3000))
+    print(r.zrank('keyword', '马云'))
+    print(r.zrevrank('keyword', '马云'))
+
