@@ -1,11 +1,24 @@
-def quicksort(arr):
-    if len(arr) <= 1:
-        return arr
-    pivot = arr[len(arr) // 2]
-    left = [x for x in arr if x < pivot]
-    middle = [x for x in arr if x == pivot]
-    right = [x for x in arr if x > pivot]
-    return quicksort(left) + middle + quicksort(right)
+import pymongo
+from pymongo import MongoClient
+import urllib.parse
+
+if __name__ == '__main__':
 
 
-print(quicksort([3, 6, 8, 10, 1, 2, 1]))
+
+
+
+    username = urllib.parse.quote_plus('admin')
+
+    password = urllib.parse.quote_plus('123456')
+    myclient = MongoClient('mongodb://%s:%s@49.232.208.236' % (username, password))
+    # myclient = pymongo.MongoClient("mongodb://49.232.208.236:27017/")
+    mydb = myclient["runoobdb222"]
+
+    document1 = {'zhoujing': 2222222222}
+
+    posts = mydb.posts  # 你也可以不这样做，每次通过db.posts调用
+    post_1 = posts.insert_one(document1).inserted_id
+
+    for data in posts.find():
+        print(data)
