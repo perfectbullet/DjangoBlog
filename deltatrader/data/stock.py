@@ -14,13 +14,13 @@ import pandas as pd
 import datetime
 import os
 
-auth(' ', ' ')  # 账号是申请时所填写的手机号
+auth('13551167709', '1355Jing.@') # 账号是申请时所填写的手机号
 # 设置行列不忽略
 pd.set_option('display.max_rows', 100000)
 pd.set_option('display.max_columns', 1000)
 
 # 全局变量
-data_root = '/Users/ztnn/PycharmProjects/DeltaTrader/data/'
+data_root = r'D:\python_workspace\DjangoBlog\deltatrader\data'
 
 
 def init_db():
@@ -88,7 +88,7 @@ def export_data(data, filename, type, mode=None):
     :param mode: a代表追加，none代表默认w写入
     :return:
     """
-    file_root = data_root + type + '/' + filename + '.csv'
+    file_root = os.path.join(data_root, type, filename + '.csv')
     data.index.names = ['date']
     if mode == 'a':
         data.to_csv(file_root, mode=mode, header=False)

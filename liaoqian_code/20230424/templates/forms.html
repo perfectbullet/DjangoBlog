@@ -1,0 +1,6 @@
+{# 定义宏 #}
+{% macro input(name, type='text', value='') %}
+    <div>
+          <input class="input-control" type="{{ type }}" name="{{ name }}" value="{{ value }}">
+    </div>
+{% endmacro %}
