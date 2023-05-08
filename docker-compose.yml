@@ -56,9 +56,9 @@ services:
   djangoblog:
     build: .
     restart: always
-    #command: /code/DjangoBlog/bin/docker_start.sh
+    command: /code/DjangoBlog/bin/docker_start.sh
     # command: python manage.py runserver 0.0.0.0:8000
-    command: daphne -b 0.0.0.0 -p 8000 DjangoBlog.asgi:application
+#    command: daphne -b 0.0.0.0 -p 8000 DjangoBlog.asgi:application
     ports:
       - "8003:8003"
       - "8000:8000"

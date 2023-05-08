@@ -24,7 +24,8 @@ python manage.py makemigrations && \
 # Start your Django Unicorn
 # Programs meant to be run under supervisor should not daemonize themselves (do not use --daemon)
 # python manage.py runserver 0.0.0.0:8000
-daphne -p 8000 DjangoBlog.asgi:application
+# daphne -p 8000 DjangoBlog.asgi:application
+daphne -b 0.0.0.0 -p 8000 DjangoBlog.asgi:application
 #
 #exec gunicorn ${DJANGO_WSGI_MODULE}:application \
 #--name $NAME \
