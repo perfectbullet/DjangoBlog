@@ -51,7 +51,7 @@ services:
       - backnet
     volumes:
       - ./bin/datas/liaoqian_mysql_db/:/var/lib/mysql
-    container_name: db
+    container_name: db2
 
   djangoblog:
     build: .
