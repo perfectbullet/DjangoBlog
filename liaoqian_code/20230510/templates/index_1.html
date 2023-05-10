@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>首页-DTL</h1>
+    <p>用户名: {{ username }}</p>
+    <p>年龄: {{ age }}</p>
+    <img src="{{ img_url }}" alt="">
+    <h3>用户列表</h3>
+    {% for user in list_users %}
+        <p>用户名: {{ user.name }}</p>
+        <p>年龄: {{ user.age }}</p>
+    {% endfor %}
+    <h3>猫的信息</h3>
+    {{ cat.display }}
+</body>
+</html>
