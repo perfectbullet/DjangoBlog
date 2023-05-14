@@ -6,13 +6,16 @@ WORKDIR /code/DjangoBlog/
 RUN  apt install default-libmysqlclient-dev -y && \
     ln -sf /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime
 COPY requirements.txt /code/DjangoBlog/
-COPY . .
+
 RUN pip install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple &&  \
     pip install -Ur requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple &&  \
     pip install channels["daphne"] -i https://pypi.tuna.tsinghua.edu.cn/simple &&  \
     pip install gunicorn -i https://pypi.tuna.tsinghua.edu.cn/simple &&  \
-    pip cache purge && chmod -R 755 /code/DjangoBlog/bin/
+    pip cache purge
 
+COPY . .
+
+RUN chmod -R 755 /code/DjangoBlog/bin/
 
 CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
 
