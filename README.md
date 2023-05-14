@@ -38,6 +38,44 @@ mysql客户端从`pymysql`修改成了`mysqlclient`，具体请参考 [pypi](htt
 
     下载 http://peak.telecommunity.com/dist/ez_setup.py 和 https://raw.github.com/pypa/pip/master/contrib/get-pip.py 这两个文件，双击运行。 
 
+# 项目文件库全文检索数据迁移和构建
+
+```shell
+# 需要的库有 
+pip pdfplumber==0.5.28
+# 激活项目虚拟环境，进人项目目录
+python generate data.py --suffix=pdf
+python generate data.py --suffix=doc
+#doc docx xls xlsl
+
+(cappenv) [rootacapp3 back end] pvthon manage.py rebuild index
+#然后按确认
+```
+
+# IK分词器的安装
+
+```shell
+docker cp elasticsearch-analysis-ik-7.1.1.zip es:/usr/share/elasticsearch
+docker exec-it es bash 
+
+# 到目录 /usr/share/elasticsearch#容器中执行
+mkdir plugins/ik
+mv elasticsearch-analysis-ik-7.11zip plugins/ik
+cd plugins/ik
+unzip elasticsearch-analysis-ik-7.1.1zip
+rm -rf elasticsearch-analysis-ik-7.1.1.zip
+#容器中执行完成
+
+# 退出容器后
+docker restart es
+# 测试分词
+curl -k XPOST http://ocalhost:9200/_analyze?pretty -H 'Content-Type: application/json' -d '{"text:"黄河之水天来"，"analyz": "ik"}'
+```
+
+
+
+
+
 
 ## 运行
 
