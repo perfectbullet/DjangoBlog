@@ -59,7 +59,7 @@ def read_xls_content(excel_path):
     sheets = ws.sheets()
     cell_values = []
     for sheet in sheets:
-        for row in sheet.getrows():
+        for row in sheet.get_rows():
             for cell in row:
                 cell_text = '{}'.format(cell.value)
                 cell_text = remove_tbcell_space(cell_text)
@@ -76,8 +76,7 @@ def read_docx_content(file_path):
     param file_path:
     return:
     """
-
-    logger.info('read file %s', file_path)
+    logger.info('read file {}', file_path)
     parent = Document(file_path)
     paragraphs_and_tables = []
 
@@ -98,10 +97,16 @@ def read_docx_content(file_path):
             tb_content = read_table_obj(tb)
             paragraphs_and_tables.append(tb_content)
         else:
-            logger.info('no use element %s , child')
+            logger.info('no use element {}', child)
     full_text = ''.join(paragraphs_and_tables)
     return full_text
 
 
 if __name__ == '__main__':
-    demo_excel_path = r''
+    demo_excel_path = r'1.xls'
+    demo_doc_path = r'2.docx'
+
+    result = read_xls_content(demo_excel_path)
+    print(result)
+    doc_result = read_docx_content(demo_doc_path)
+    print(doc_result)

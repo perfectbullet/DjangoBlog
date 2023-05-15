@@ -68,5 +68,12 @@ def read_pdf_content(pdf_file_path):
             if tb_obj:
                 tb_context = read_table_obj(tb_obj)
                 paragraphs_and_tables.append(tb_context)
-    full_text = ', '.join(paragraphs_and_tables)
+    full_text = ','.join(paragraphs_and_tables)
     return full_text
+
+
+if __name__ == '__main__':
+    demo_pdf_path = r'C:/Users/Administrator/Desktop/阿里巴巴 Java 开发手册.pdf'
+
+    result = read_pdf_content(demo_pdf_path)
+    print(result)
