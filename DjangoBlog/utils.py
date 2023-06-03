@@ -134,7 +134,7 @@ def get_current_site():
     return site
 
 
-class BlogMarkDownRenderer(mistune.Renderer):
+class BlogMarkDownRenderer(mistune.Markdown):
     '''
     markdown渲染
     '''
@@ -169,12 +169,12 @@ class BlogMarkDownRenderer(mistune.Renderer):
             link, title, nofollow, text)
 
 
-class CommonMarkdown():
+class CommonMarkdown:
     @staticmethod
     def get_markdown(value):
-        renderer = BlogMarkDownRenderer(inlinestyles=False)
+        # renderer = mistune.Markdown
 
-        mdp = mistune.Markdown(escape=True, renderer=renderer)
+        mdp = mistune.create_markdown()
         return mdp(value)
 
 
