@@ -177,8 +177,7 @@ HAYSTACK_CONNECTIONS = {
 # Automatically update searching index
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 # Allow user login with username and password
-AUTHENTICATION_BACKENDS = [
-    'accounts.user_login_backend.EmailOrUsernameModelBackend']
+AUTHENTICATION_BACKENDS = ['accounts.user_login_backend.EmailOrUsernameModelBackend']
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'collectedstatic')
 
