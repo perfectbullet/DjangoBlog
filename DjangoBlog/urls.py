@@ -35,6 +35,7 @@ urlpatterns = [
                   url(r'^search', include('haystack.urls'), name='search'),
                   url(r'', include('servermanager.urls', namespace='servermanager')),
                   url(r'', include('owntracks.urls', namespace='owntracks')),
+                  re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}, name='static'),
                   path("chat/", include("chat.urls")),
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
