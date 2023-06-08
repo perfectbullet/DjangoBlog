@@ -17,6 +17,13 @@ docker run -d  -p 8000:8000 -e DJANGO_MYSQL_HOST=mysqlhost -e DJANGO_MYSQL_PASSW
 ```shell
 docker-compose build
 docker-compose up -d
+
+# 进入容器 
+# docker-compose exec 
+# Usage: logs [options] [SERVICE...]
+docker-compose exec djangoblog bash
+docker-compose exec djangoblog pip list
+docker-compose exec djangoblog pip list
 ```
 本方式生成的mysql数据文件在 `bin/datas/mysql` 文件夹。  
 等启动完成后，访问 [http://127.0.0.1](http://127.0.0.1) 即可。
