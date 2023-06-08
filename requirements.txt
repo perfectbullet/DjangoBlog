@@ -10,7 +10,7 @@ elasticsearch-dsl==7.4.0
 gevent==22.10.2
 jieba==0.42.1
 jsonpickle==2.0.0
-mistune==0.8.4
+mistune==3.0.0rc5
 mysqlclient==2.0.3
 Pillow==8.3.1
 Pygments==2.9.0
