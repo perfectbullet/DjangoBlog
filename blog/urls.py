@@ -1,16 +1,12 @@
-#!/usr/bin/env python
-# encoding: utf-8
-
-
 """
-@version: ??
-@author: liangliangyy
+@version: v1
+@author: liangliangyy, zhoujing
 @license: MIT Licence
-@contact: liangliangyy@gmail.com
+@contact: liangliangyy@gmail.com, 121531845@qq.com
 @site: https://www.lylinux.net/
 @software: PyCharm
 @file: urls.py
-@time: 2016/11/2 下午7:15
+@time: 2023/06/2 下午7:15
 """
 
 from django.urls import path
