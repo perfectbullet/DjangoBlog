@@ -1,0 +1,224 @@
+{
+  "status": "failed",
+
+  "config": [
+    {
+      "file": "./nginx-bak.conf",
+      "status": "failed",
+      "errors": [
+        {
+          "error": "[Errno 2] No such file or directory: "
+          .
+          \
+          \
+          \
+          \
+          mime.types
+          "",
+          "line": 6
+        }
+      ],
+      "parsed": [
+        {
+          "file": "./nginx-bak.conf",
+          "directive": "worker_processes",
+          "line": 1,
+          "args": [
+            "1"
+          ]
+        },
+        {
+          "file": "./nginx-bak.conf",
+          "directive": "events",
+          "line": 2,
+          "args": [],
+          "block": [
+            {
+              "file": "./nginx-bak.conf",
+              "directive": "worker_connections",
+              "line": 3,
+              "args": [
+                "1024"
+              ]
+            }
+          ]
+        },
+        {
+          "file": "./nginx-bak.conf",
+          "directive": "http",
+          "line": 5,
+          "args": [],
+          "block": [
+            {
+              "file": "./nginx-bak.conf",
+              "directive": "default_type",
+              "line": 7,
+              "args": [
+                "application/octet-stream"
+              ]
+            },
+            {
+              "file": "./nginx-bak.conf",
+              "directive": "sendfile",
+              "line": 8,
+              "args": [
+                "on"
+              ]
+            },
+            {
+              "file": "./nginx-bak.conf",
+              "directive": "keepalive_timeout",
+              "line": 9,
+              "args": [
+                "65"
+              ]
+            },
+            {
+              "file": "./nginx-bak.conf",
+              "directive": "server",
+              "line": 10,
+              "args": [],
+              "block": [
+                {
+                  "file": "./nginx-bak.conf",
+                  "directive": "listen",
+                  "line": 11,
+                  "args": [
+                    "80"
+                  ]
+                },
+                {
+                  "file": "./nginx-bak.conf",
+                  "directive": "server_name",
+                  "line": 12,
+                  "args": [
+                    "localhost"
+                  ]
+                },
+                {
+                  "file": "./nginx-bak.conf",
+                  "directive": "location",
+                  "line": 13,
+                  "args": [
+                    "/"
+                  ],
+                  "block": [
+                    {
+                      "file": "./nginx-bak.conf",
+                      "directive": "root",
+                      "line": 14,
+                      "args": [
+                        "html"
+                      ]
+                    },
+                    {
+                      "file": "./nginx-bak.conf",
+                      "directive": "index",
+                      "line": 15,
+                      "args": [
+                        "index.html",
+                        "index.htm"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "file": "./nginx-bak.conf",
+                  "directive": "error_page",
+                  "line": 17,
+                  "args": [
+                    "500",
+                    "502",
+                    "503",
+                    "504",
+                    "/50x.html"
+                  ]
+                },
+                {
+                  "file": "./nginx-bak.conf",
+                  "directive": "location",
+                  "line": 18,
+                  "args": [
+                    "=",
+                    "/50x.html"
+                  ],
+                  "block": [
+                    {
+                      "file": "./nginx-bak.conf",
+                      "directive": "root",
+                      "line": 19,
+                      "args": [
+                        "html"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "./nginx-bak.conf",
+              "directive": "server",
+              "line": 22,
+              "args": [],
+              "block": [
+                {
+                  "file": "./nginx-bak.conf",
+                  "directive": "listen",
+                  "line": 23,
+                  "args": [
+                    "8000"
+                  ]
+                },
+                {
+                  "file": "./nginx-bak.conf",
+                  "directive": "listen",
+                  "line": 24,
+                  "args": [
+                    "somename:8080"
+                  ]
+                },
+                {
+                  "file": "./nginx-bak.conf",
+                  "directive": "server_name",
+                  "line": 25,
+                  "args": [
+                    "somename",
+                    "alias",
+                    "another.alias"
+                  ]
+                },
+                {
+                  "file": "./nginx-bak.conf",
+                  "directive": "location",
+                  "line": 26,
+                  "args": [
+                    "/"
+                  ],
+                  "block": [
+                    {
+                      "file": "./nginx-bak.conf",
+                      "directive": "root",
+                      "line": 27,
+                      "args": [
+                        "html"
+                      ]
+                    },
+                    {
+                      "file": "./nginx-bak.conf",
+                      "directive": "index",
+                      "line": 28,
+                      "args": [
+                        "index.html",
+                        "index.htm"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
