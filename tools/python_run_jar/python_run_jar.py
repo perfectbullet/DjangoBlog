@@ -1,6 +1,4 @@
 import os
-import shlex
-import subprocess
 import time
 
 import psutil
@@ -21,25 +19,11 @@ PWD = os.getcwd()
 JAVA_BIN = 'java'
 
 
-def proc_by_pid_win(pid):
-    """
-    on windows
-    :param pid:
-    :return:
-    """
-    find_pid_cmd = 'tasklist /FI "PID eq {}"'
-    find_pid_args = shlex.split(find_pid_cmd.format(pid))
-    logger.info('find_args {}', find_pid_args)
-    proc_find = subprocess.Popen(find_pid_args, stdout=subprocess.PIPE)
-    find_result = proc_find.stdout.read()
-    logger.info('proc_find stdout is {}', find_result)
-    return find_result
-
-
-def start_jar(jar_path):
+def start_jar(jar_path, conf_name=None):
     """
     通过命令启动jar包
-    :param command:
+    :param jar_path:
+    :param conf_name:
     :return:
     {
         'pid': proc.pid,
@@ -47,8 +31,20 @@ def start_jar(jar_path):
         'start_log': stdout.decode('utf8', 'ignore'),
     }
     """
-    jar_ser_port = get_jar_port(jar_path)
+    msg = ''
+    if conf_name is None:
+        conf_name = 'application.properties'
+        msg = '没有指定配置文件名称, 平台将猜一个名称 {}'.format(conf_name)
+        logger.info(msg)
+    jar_ser_port = get_jar_port(jar_path, conf_name)
     new_ser_port = check_or_get(jar_ser_port)
+    if not new_ser_port:
+        return {
+            'pid': None,
+            'reslut': False,
+            'log': '没有可用的端口, {}'.format(new_ser_port),
+        }
+
     jar_path_abs = os.path.abspath(jar_path)
     start_command = '{} -jar {} --server.port={}'.format(JAVA_BIN, jar_path_abs, new_ser_port)
     logger.info('start jar call subprocess run, start_command {}, pwd is {}'.format(start_command, PWD))
@@ -61,7 +57,7 @@ def start_jar(jar_path):
     return {
         'pid': proc.pid,
         'reslut': pid_exists,
-        'log': 'pid_exists {}'.format(pid_exists),
+        'log': 'msg: {}, pid_exists {}'.format(pid_exists, msg),
     }
 
 
@@ -71,7 +67,6 @@ def kill_proc(pid):
     通用的 终结进程
     参考文档为
     https://psutil.readthedocs.io/en/latest/#quick-links
-    :param force:
     :param pid: int
     :return:
     """
@@ -133,5 +128,3 @@ if __name__ == '__main__':
     # kill jar 包
     # kill_result = kill_proc(start_result['pid'])
     # print(kill_result)
-
-
