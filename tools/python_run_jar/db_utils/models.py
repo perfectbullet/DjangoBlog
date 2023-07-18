@@ -11,7 +11,6 @@ from os.path import join
 from sqlalchemy import create_engine
 
 
-
 class Base(DeclarativeBase):
     pass
 
@@ -41,8 +40,7 @@ class NginxConf(Base):
         return f"conf_name(id={self.id!r}, server_port={self.server_port!r})"
 
 
-DB_PATH = join(os.getcwd(), 'db1.db')
-engine = create_engine("sqlite:///{}".format(DB_PATH), echo=True)
-
 if __name__ == '__main__':
+    DB_PATH = join(os.getcwd(), 'db1.db')
+    engine = create_engine("sqlite:///{}".format(DB_PATH), echo=True)
     Base.metadata.create_all(engine)

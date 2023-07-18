@@ -37,11 +37,8 @@ class BSTNode:
         # 新增值就要看值
         if not self.val:
             self.val = val
-            return
-        if self.val == val:
             # 等于的情况，值就在二叉树中，不用插入
-            return
-        if val < self.val:
+        elif val < self.val:
             # 比当前节点值小，按定义， 要放到左边子节点
             if self.left is not None:
                 # 左边子节点不为空
@@ -56,6 +53,14 @@ class BSTNode:
             else:
                 self.right = BSTNode(val)
 
+    def inorder(self, node):
+        # root
+        if node is None:
+            return
+        node.inorder(node.left)
+        print(node.val)
+        node.inorder(node.right)
+
     def search(self, val):
         if val == self.val:
             return True
@@ -69,16 +74,34 @@ class BSTNode:
             return False
         return self.right.search(val)
 
+def new_bst():
+    bst5 = BSTNode(5)
+    bst2 = BSTNode(2)
+    bst5.left = bst2
+    bst1 = BSTNode(1)
+    bst2.left = bst1
+    bst4 = BSTNode(4)
+    bst2.right = bst4
+    bst3 = BSTNode(3)
+    bst4.left = bst3
+    bst6 = BSTNode(6)
+    bst5.right = bst6
+    bst7 = BSTNode(7)
+    bst6.right = bst7
+
+    bst5.inorder(bst5)
+
 
 if __name__ == '__main__':
-    bst = BSTNode(52)
-    bst.insert(50)
-    bst.insert(20)
-    bst.insert(53)
-    bst.insert(11)
-    bst.insert(22)
-    bst.insert(52)
-    bst.insert(78)
-
-    print("53 is present in the binary tree:", bst.search(53))
-    print("100 is present in the binary tree:", bst.search(100))
+    # bst = BSTNode(52)
+    # bst.insert(50)
+    # bst.insert(20)
+    # bst.insert(53)
+    # bst.insert(11)
+    # bst.insert(22)
+    # bst.insert(52)
+    # bst.insert(78)
+    #
+    # print("53 is present in the binary tree:", bst.search(53))
+    # print("100 is present in the binary tree:", bst.search(100))
+    new_bst()

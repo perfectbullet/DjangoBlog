@@ -3,7 +3,7 @@ import yaml
 
 from loguru import logger
 from jproperties import Properties
-from jar_utils.port_utils import check_or_get
+from .port_utils import check_or_get
 
 # jar 配置文件路径
 PROPER_SUFFIX = '.properties'
