@@ -18,7 +18,7 @@ from loguru import logger
 from api.api import API
 from pyapp.config.config import Config
 from pyapp.db.db import DB
-from flask_app.wsgi_gevent import run_flask_process
+from flask_app_in_subprocess.wsgi_gevent import run_flask_process
 
 cfg = Config()  # 配置
 db = DB()  # 数据库类
