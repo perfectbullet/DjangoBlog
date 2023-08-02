@@ -31,7 +31,7 @@ def allowed_file(filename):
 
 @app.get('/')
 def hello():
-    return 'hello'
+    return '在子进程中利用 gevent WSGIServer 运行 Flask 他应用的方法'
 
 
 @app.route('/uploads/<filename>')
