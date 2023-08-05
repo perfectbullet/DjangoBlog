@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  gold_price:
+    build: .
+    restart: always
+    command: python custom-crawler/crawler.py
+    ports:
+      - "5000:5000"
+      - "5001:5001"
+    expose:
+      - "5000"
+      - "5001"
+    volumes:
+      - /root/gold_price_api/:/code/gold_price_api/
+    environment:
+      - OK_NAME=gold_price_api
+    networks:
+      - backnet
+      - frontnet
+    container_name: gold_price_api_container_name
+
+networks:
+  backnet:
+  frontnet:
