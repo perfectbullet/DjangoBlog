@@ -9,11 +9,11 @@ def run_app():
     """
     只有在子进程运行时中导入 app
     """
-    from server import app
+    from server import create_app
     from gevent.server import _tcp_listener
 
     listener = _tcp_listener(('0.0.0.0', 5004))
-    wsgi_server = WSGIServer(listener, app)
+    wsgi_server = WSGIServer(listener, create_app())
     wsgi_server.serve_forever()
 
 
