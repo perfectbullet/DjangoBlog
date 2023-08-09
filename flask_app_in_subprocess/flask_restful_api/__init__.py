@@ -1,14 +1,26 @@
+"""
+@FileName：__init__.py.py
+@Description：
+@Author：zhoujing
+@contact：121531845@qq.com
+@Time：2023/8/9 22:33
+@Department：红石扩大小区
+@Website：www.zhoujing.com
+@Copyright：©2019-2023 xxx信息科技有限公司
+"""
+
+
 import os
 from datetime import timedelta
 
 from flask import Flask
 from loguru import logger
 
-from api.conf.auth import jwt
-from api.conf.routes import generate_routes
-from api.database.database import db
-from api.db_initializer.db_initializer import create_admin_user, create_super_admin, create_test_user
-from api.models.models import User
+from flask_restful_api.api.conf.auth import jwt
+from flask_restful_api.api.conf.routes import generate_routes
+from flask_restful_api.api.database.database import db
+from flask_restful_api.api.db_initializer.db_initializer import create_admin_user, create_super_admin, create_test_user
+from flask_restful_api.api.models.models import User
 
 
 def create_app():

@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from api.db_initializer.db_initializer import create_test_user
-from api.tests.base import BaseTest
+from flask_restful_api.api.db_initializer.db_initializer import create_test_user
+from flask_restful_api.api.tests.base import BaseTest
 
 
 class RegisterTest(BaseTest):

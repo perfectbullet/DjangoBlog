@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from api.tests.base import BaseTest
+from flask_restful_api.api.tests.base import BaseTest
 
 
 class IndexTest(BaseTest):

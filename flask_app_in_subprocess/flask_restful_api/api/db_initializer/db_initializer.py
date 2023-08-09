@@ -3,8 +3,8 @@
 
 import logging
 
-from api.database.database import db
-from api.models.models import User
+from flask_restful_api.api.database.database import db
+from flask_restful_api.api.models.models import User
 
 
 def create_super_admin():

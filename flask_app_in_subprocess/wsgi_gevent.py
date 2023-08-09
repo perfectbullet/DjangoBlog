@@ -9,7 +9,7 @@ def run_app():
     """
     只有在子进程运行时中导入 app
     """
-    from server import create_app
+    from flask_restful_api import create_app
     from gevent.server import _tcp_listener
 
     listener = _tcp_listener(('0.0.0.0', 5004))

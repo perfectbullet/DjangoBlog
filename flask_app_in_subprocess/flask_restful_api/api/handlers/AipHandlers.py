@@ -6,8 +6,8 @@ from flask_restful import Resource
 from flask_jwt_extended import jwt_required
 
 # from api.conf.auth import auth
-from api.database.database import db
-from api.models.models import JsonData
+from flask_restful_api.api.database.database import db
+from flask_restful_api.api.models.models import JsonData
 
 CODE200 = 200
 CODE404 = 404

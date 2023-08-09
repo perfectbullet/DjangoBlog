@@ -3,8 +3,8 @@
 
 from flask_testing import TestCase
 
-from api.database.database import db
-from main import create_app
+from flask_restful_api.api.database.database import db
+from flask_restful_api import create_app
 
 
 class BaseTest(TestCase):

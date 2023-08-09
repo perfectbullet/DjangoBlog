@@ -3,11 +3,10 @@
 
 from datetime import datetime
 
-from flask import g
 from flask_jwt_extended import create_access_token
 
-from api.conf.auth import jwt
-from api.database.database import db
+
+from flask_restful_api.api.database.database import db
 
 
 class JsonData(db.Model):

@@ -9,12 +9,12 @@ from flask_restful import Resource
 from flask_jwt_extended import jwt_required
 from flask_jwt_extended import current_user
 
-import api.error.errors as error
+import flask_restful_api.api.error.errors as error
 from flask_jwt_extended import create_access_token
-from api.database.database import db
-from api.models.models import Blacklist, User
-from api.roles import role_required
-from api.schemas.schemas import UserSchema
+from flask_restful_api.api.database.database import db
+from flask_restful_api.api.models.models import Blacklist, User
+from flask_restful_api.api.roles import role_required
+from flask_restful_api.api.schemas.schemas import UserSchema
 
 CODE200 = 200
 

@@ -3,7 +3,7 @@
 
 from flask_restful import Api
 
-from api.handlers.UserHandlers import (
+from flask_restful_api.api.handlers.UserHandlers import (
     DataAdminRequired,
     DataUserRequired,
     Index,
@@ -16,7 +16,7 @@ from api.handlers.UserHandlers import (
     DataSuperAdminRequired
     )
 
-from api.handlers.AipHandlers import JsonAip2
+from flask_restful_api.api.handlers.AipHandlers import JsonAip2
 
 
 def generate_routes(app):

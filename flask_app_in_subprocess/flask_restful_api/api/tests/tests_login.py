@@ -3,8 +3,8 @@
 from flask_jwt_extended import get_unverified_jwt_headers, decode_token
 
 
-from api.db_initializer.db_initializer import create_test_user
-from api.tests.base import BaseTest
+from flask_restful_api.api.db_initializer.db_initializer import create_test_user
+from flask_restful_api.api.tests.base import BaseTest
 
 
 class LoginTest(BaseTest):
