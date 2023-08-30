@@ -1,0 +1,37 @@
+# -*- mode: python ; coding: utf-8 -*-
+
+block_cipher = None
+
+
+a = Analysis(['odoo-bin'],
+             pathex=['C:\\Program Files\\python\\DLLs\\', 'C:\\Program Files\\python\\Lib', 'C:\\Program Files\\python\\Lib\\site-packages', 'G:\\workspace\\odoo-14.0'],
+             binaries=[],
+             datas=[('./odoo.conf', './'), ('./odoo', './odoo'), ('./addons', './addons')],
+             hiddenimports=['_socket', 'win32com', 'pkg_resources', 'pkg_resources.py2_warn', 'dateutil.parser', 'passlib.handlers.pbkdf2', 'passlib.handlers.misc', 'passlib.handlers', 'passlib.handlers.md5_crypt', 'passlib.handlers.argon2', 'passlib.handlers.pbkdf2', 'passlib.handlers.bcrypt', 'passlib.handlers.des_crypt', 'passlib.handlers.windows', 'passlib.handlers.cisco', 'passlib.handlers.django', 'passlib.handlers.fshp', 'passlib.handlers.digests', 'passlib.handlers.ldap_digests', 'passlib.handlers.roundup', 'passlib.handlers.mssql', 'passlib.handlers.mysql', 'passlib.handlers.oracle', 'passlib.handlers.phpass', 'passlib.handlers.misc', 'passlib.handlers.postgres', 'passlib.handlers.scram', 'passlib.handlers.scrypt', 'passlib.handlers.sha1_crypt', 'passlib.handlers.sha2_crypt', 'passlib.handlers.sun_md5_crypt', 'reportlab.graphics.barcode.common', 'reportlab.graphics.barcode.code39', 'reportlab.graphics.barcode.code93', 'reportlab.graphics.barcode.code128', 'reportlab.graphics.barcode.usps', 'reportlab.graphics.barcode.usps4s', 'reportlab.graphics.barcode.widgets', 'reportlab.graphics.barcode.eanbc', 'reportlab.graphics.barcode.ecc200datamatrix', 'reportlab.graphics.barcode.fourstate', 'reportlab.graphics.barcode.lto', 'reportlab.graphics.barcode.qr', 'reportlab.graphics.barcode.qrencoder', 'babel.messages.pofile'],
+             hookspath=[],
+             runtime_hooks=[],
+             excludes=['tkinter'],
+             win_no_prefer_redirects=False,
+             win_private_assemblies=False,
+             cipher=block_cipher,
+             noarchive=False)
+pyz = PYZ(a.pure, a.zipped_data,
+             cipher=block_cipher)
+exe = EXE(pyz,
+          a.scripts,
+          [],
+          exclude_binaries=True,
+          name='odoo-bin',
+          debug=False,
+          bootloader_ignore_signals=False,
+          strip=False,
+          upx=True,
+          console=True )
+coll = COLLECT(exe,
+               a.binaries,
+               a.zipfiles,
+               a.datas,
+               strip=False,
+               upx=True,
+               upx_exclude=[],
+               name='odoo-bin')
